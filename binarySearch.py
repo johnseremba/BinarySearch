@@ -1,27 +1,36 @@
 class BinarySearch(list):
     def __init__(self, a, b):
-        self.array = [x for x in range(0, a, b)]
+        self.array = [x for x in range(b, a * b, b)]
         self.length = len(self.array)
 
     def search(self, param):
-        print(self.array)
-        result = {}
-        high = self.length
-        low = 0
         count = 0
+        print(self.array)
 
-        while low < high:
-            count += 1
-            half = (high + low) // 2
-            if self.array[half] < param:
-                low = half + 1
-            else:
-                high = half
-            if self.array[low] == param:
-                return {"count": count, "index": low}
-            elif self.array[low] != param:
-                continue
-        return {"count": count, "index": None}
+        array = self.array
+        lower = 0
+        upper = len(array)
 
-mySearch = BinarySearch(10000, 2)
-print(mySearch.search(3))
+        while lower < upper:
+            try:
+                count += 1
+                mid = lower + (upper - lower) // 2
+                value = self.array[mid]
+                if param == value:
+                    return {"count": count, "index": mid}
+                elif param > value:
+                    if lower == mid:
+                        break
+                    lower = mid + 1
+                else:
+                    upper = mid - 1
+            except:
+                break
+        return {"count": count, "index": -1}
+        # print(self.array)
+
+mySearch = BinarySearch(100, 10)
+print(mySearch.search(1000))
+
+# elif param > self.array[upper - 1]:
+#                     return {"count": count, "index": -1}

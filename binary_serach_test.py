@@ -1,5 +1,5 @@
 import unittest
-from andeLabs import BinarySearch
+from BinarySearch import binarySearch
 
 class ListComprehensionTest(unittest.TestCase):
 
@@ -8,9 +8,9 @@ class ListComprehensionTest(unittest.TestCase):
     """
 
     def setUp(self):
-        self.one_to_twenty = BinarySearch(20, 1)
-        self.two_to_forty = BinarySearch(20, 2)
-        self.ten_to_thousand = BinarySearch(100, 10)
+        self.one_to_twenty = binarySearch.BinarySearch(20, 1)
+        self.two_to_forty = binarySearch.BinarySearch(20, 2)
+        self.ten_to_thousand = binarySearch.BinarySearch(100, 10)
 
     def test_small_list(self):
         self.assertListEqual(
@@ -67,7 +67,7 @@ class ListComprehensionTest(unittest.TestCase):
                 )
 
 
-class BinarySearchTest(TestCase):
+class BinarySearchTest(unittest.TestCase):
 
     """Get the index of the item with an expected number of loops in\
      array [1, 2 . . . 20]
@@ -75,9 +75,9 @@ class BinarySearchTest(TestCase):
     """
 
     def setUp(self):
-        self.one_to_twenty = BinarySearch(20, 1)
-        self.two_to_forty = BinarySearch(20, 2)
-        self.ten_to_thousand = BinarySearch(100, 10)
+        self.one_to_twenty = binarySearch.BinarySearch(20, 1)
+        self.two_to_forty = binarySearch.BinarySearch(20, 2)
+        self.ten_to_thousand = binarySearch.BinarySearch(100, 10)
 
     def test_small_list_search(self):
         search = self.one_to_twenty.search(16)
@@ -163,6 +163,6 @@ class BinarySearchTest(TestCase):
             search3['index'],
             msg='should return {count: 3, index: -1} for 10000'
         )
-
+        
 if __name__ == '__main__':
     unittest.main()
