@@ -16,7 +16,6 @@ class BinarySearch(list):
             return {"count": count, "index": lower}
 
         while lower < upper:
-
             mid = lower + (upper - lower) // 2
             value = self.array[mid]
             if param == value:
@@ -28,11 +27,4 @@ class BinarySearch(list):
             else:
                 upper = mid - 1
             count += 1
-        return {"count": count, "index": -1}
-
-mySearch = BinarySearch(20, 2)
-print(mySearch)
-print(mySearch.search(33))
-
-# elif param > self.array[upper - 1]:
-#                     return {"count": count, "index": -1}
+        return {"count": count - 1, "index": -1}
